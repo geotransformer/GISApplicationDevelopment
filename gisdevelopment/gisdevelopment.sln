@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddZoomMenuButton", "AddZoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectCollection", "ObjectCollection\ObjectCollection.csproj", "{68B26E42-8DE1-4CBD-9C07-746AEAE46A1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularizingCode", "ModularizingCode\ModularizingCode.csproj", "{E0570FEA-6606-44AE-9283-985E98DA6586}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68B26E42-8DE1-4CBD-9C07-746AEAE46A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B26E42-8DE1-4CBD-9C07-746AEAE46A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B26E42-8DE1-4CBD-9C07-746AEAE46A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0570FEA-6606-44AE-9283-985E98DA6586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0570FEA-6606-44AE-9283-985E98DA6586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0570FEA-6606-44AE-9283-985E98DA6586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0570FEA-6606-44AE-9283-985E98DA6586}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
