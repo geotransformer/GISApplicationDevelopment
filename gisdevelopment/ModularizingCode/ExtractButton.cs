@@ -74,11 +74,14 @@ namespace ModularizingCode
                 // the name of river system may be changed to "U. S. River" ( the original is us_hydro)
                 if (pLayer.Name == "U.S. Rivers" || pLayer.Name == "us_hydro")
                 {
+                     // Found the layer we want
+                    //MessageBox.Show("find U.S. Rivers layer", "Warning", MessageBoxButtons.OK); 
                     break;
-                    // Found the layer we want
+                   
                 }
-                pLayer = pLayers.Next();
                 // If not correct layer, go to next layer
+                pLayer = pLayers.Next();
+                
             }
 
             if (pLayer == null)
@@ -94,25 +97,25 @@ namespace ModularizingCode
             var colRivers = new List<string>();
            
 
-            //* Adding items to the collection
+            //Adding items to the collection
             colRivers.Add("Colorado River");
             colRivers.Add("Columbia River");
             colRivers.Add("Mississippi River");
             colRivers.Add("Rio Grande");
 
+            // This is the field to query on
             string strQueryField = "NAMEEN";
-            //* This is the field to query on
 
             int i;
-            //* For each item in the collection
+            // For each item in the collection
             for (i = 0; i < colRivers.Count; i++)
             {
-                //* Make call to extract passing the layer, current item in
-                //* collection, and the query field
-                Utilities.extract((IFeatureLayer)pLayer, colRivers[i], strQueryField);
+                // Make call to extract passing the layer, current item in
+                // collection, and the query field
+               Utilities.extract((IFeatureLayer)pLayer, colRivers[i], strQueryField);
             }
-
-            MessageBox.Show("Finished creating river subsets.", "Done", MessageBoxButtons.OK);
+            //prompt the user the extract work is done
+            MessageBox.Show("Finished creating river subsets.", "Done in button", MessageBoxButtons.OK);
         }
 
     }

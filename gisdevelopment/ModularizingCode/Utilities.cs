@@ -7,6 +7,7 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.DataSourcesFile;
 using ESRI.ArcGIS.GeoDatabaseUI;
+using System.Windows.Forms;
 
 namespace ModularizingCode
 {
@@ -44,22 +45,31 @@ namespace ModularizingCode
             //** Revision Notes:  Updated for ArcGIS 10.3 
 
             // Getting the input feature class info
-            IFeatureClass pInFClass = pInFLayer.FeatureClass;
+            IFeatureClass pInFClass;
+            pInFClass = pInFLayer.FeatureClass;
 
-            IDataset pInDataset = (IDataset)pInFLayer;
+            //get the data set
+            IDataset pInDataset;
+            pInDataset = (IDataset)pInFLayer;
 
-            //get the workspace interface
-            IFeatureWorkspace pFeatureWorkspace = (IFeatureWorkspace)pInDataset.FullName;
+            // QI to get workspace
+            IFeatureWorkspace pFeatureWorkspace;
+            pFeatureWorkspace = (IFeatureWorkspace)pInDataset.Workspace;
 
-            IFeatureClassName pInFClassName = (IFeatureClassName)pInDataset.FullName;
+            IFeatureClassName pInFClassName;
+            pInFClassName = (IFeatureClassName)pInDataset.FullName;
 
             //Get geometry definition from input featureclass.
-            string strShpName = pInFClass.ShapeFieldName;
-            IFields pFields = pInFClass.Fields;
+            string strShpName;
+            strShpName = pInFClass.ShapeFieldName;
+            IFields pFields;
+            pFields = pInFClass.Fields;
             int lngGeomIndex = 0;
             lngGeomIndex = pFields.FindField(strShpName);
-            IField pField = pFields.get_Field(lngGeomIndex);
-            IGeometryDef pGeomDef = pField.GeometryDef;
+            IField pField;
+            pField = pFields.get_Field(lngGeomIndex);
+            IGeometryDef pGeomDef;
+            pGeomDef = pField.GeometryDef;
 
             // Setting up the query filter based on the supplied field and value
             IQueryFilter pQFilter;
@@ -73,7 +83,7 @@ namespace ModularizingCode
             IWorkspaceName pOutWorkspaceName;
             pOutWorkspaceName = (IWorkspaceName)new WorkspaceName();
             pOutWorkspaceName.WorkspaceFactoryProgID = "esricore.shapefileworkspacefactory.1";
-            pOutWorkspaceName.PathName = "c:\\temp";
+            pOutWorkspaceName.PathName = "F:\\temp";
             //path to where I want the shapefile.
             IFeatureClassName pOutFClassName;
             pOutFClassName = (IFeatureClassName)new FeatureClassName();
@@ -91,6 +101,7 @@ namespace ModularizingCode
             IExportOperation pExportOp;
             pExportOp = new ExportOperation();
             pExportOp.ExportFeatureClass((IDatasetName)pInFClassName, pQFilter, pSelSet, pGeomDef, (IFeatureClassName)pOutDatasetName, 0);
+
         }
 
     }
